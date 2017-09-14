@@ -1,0 +1,16 @@
+<%- include('header.ejs'); %>
+
+   <form action="/delete" method="post">
+   	  <input type="hidden" name="guitar_id" value="<%= guitar_id %>">
+      <input type="hidden" name="guitar_gbrand" value="<%= guitar_gbrand %>">
+      <input type="hidden" name="guitar_gmodel" value="<%= guitar_gmodel %>">
+      Do you really wanna delete "<%= guitar_gbrand %> <%= guitar_gmodel %>"?
+      <br/>
+      <input type="submit" value="Yeah">
+      He got another guitar no..........
+    </form>
+
+    <br/><br/>
+    <a href="/">< Back</a>
+
+<%- include('footer.ejs'); %>

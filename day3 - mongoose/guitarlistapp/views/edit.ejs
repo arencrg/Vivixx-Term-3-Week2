@@ -1,0 +1,15 @@
+<%- include('header.ejs'); %>
+
+   <form action="/edit" method="post">
+      Updating "<%= guitar_gbrand %> <%= guitar_gmodel %>"
+   	  <input type="hidden" name="guitar_id" value="<%= guitar_id %>">
+      <input type="text" name="guitar_gbrand" value="<%= guitar_gbrand %>">
+      <input type="text" name="guitar_gmodel" value="<%= guitar_gmodel %>">
+      <br/>
+      <input type="submit">
+    </form>
+
+    <br/><br/>
+    <a href="/">< Back</a>
+
+<%- include('footer.ejs'); %>

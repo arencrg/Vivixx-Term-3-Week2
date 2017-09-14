@@ -1,0 +1,44 @@
+<%- include('header.ejs'); %>
+
+    <%
+    if(sorted){
+list.sort(function(a, b) {
+  var nameA = a.model.toUpperCase(); // ignore upper and lowercase
+  var nameB = b.model.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  // names must be equal
+  return 0;
+});
+}
+     %>
+
+ <p>As a girlfriend to a boy who is stuck in perpetual GAS, it's hard for me to keep track of the guitars he buys/trades/sells/idek, so I made this app for any non-musician to keep track of your musician SO's questionable collection habits.</p>
+
+   <form action="/" method="post">
+      <input type="text" name="guitar_gbrand">
+      <input type="text" name="guitar_gmodel">
+      <input type="submit">
+    </form>
+
+<hr>
+<% if(sorted) { %>
+<a href="/">Randomize</a>
+<% } else { %>
+<a href="/sortbymodel">Sort By Model</a>
+<% }
+%>
+<hr>
+
+    <ul>
+      <% list.forEach(guitar => { %>
+        <li> <%= guitar.gbrand %> &nbsp; <%= guitar.gmodel %> || ACTIONS: <a href="/edit/<%= guitar.id %>">Edit</a>&nbsp;&nbsp;&nbsp;<a href="/delete/<%= guitar.id %>">Delete</a> </li>
+      <%  }) %>
+    </ul>
+
+<%- include('footer.ejs'); %>
